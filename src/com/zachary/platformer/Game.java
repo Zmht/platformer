@@ -17,18 +17,9 @@ public class Game extends Canvas implements Runnable{
     private Thread thread;
     private boolean running = false;
 
-    public enum STATE{
-        Menu,
-        Help,
-        Game;
-    }
-
-    public STATE gameState = STATE.Menu;
-
     public Game() {
 
-        new Window(WIDTH, HEIGHT,"Lets Build a Game!", this);
-
+        new Window(WIDTH, HEIGHT,"Platformer", this);
 
     }
 
