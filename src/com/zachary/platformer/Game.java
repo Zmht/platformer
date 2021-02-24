@@ -1,7 +1,6 @@
 package com.zachary.platformer;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.util.Random;
@@ -29,7 +28,10 @@ public class Game extends Canvas implements Runnable{
         r = new Random();
 
         //handler.addObject(new Player(WIDTH / 32, HEIGHT / 32, ID.Player, handler));
-        handler.addObject(new Platform(600, 300,ID.Platform));
+        this.addKeyListener(new KeyInput(handler));
+        handler.addObject(new Player(300, 300, ID.Player, handler));
+
+        handler.addObject(new Obstacle(600, 400,ID.Platform));
 
 
 
