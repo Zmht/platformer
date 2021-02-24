@@ -17,13 +17,21 @@ public class Game extends Canvas implements Runnable{
     private Thread thread;
     private boolean running = false;
     private Handler handler;
+    private Background background;
+    private Graphics g;
+    private Random r;
 
     public Game() {
 
         new Window(WIDTH, HEIGHT,"Platformer", this);
         handler = new Handler();
+        background = new Background();
+        r = new Random();
 
-        handler.addObject(new Player(WIDTH / 32, HEIGHT / 32, ID.Player, handler));
+        //handler.addObject(new Player(WIDTH / 32, HEIGHT / 32, ID.Player, handler));
+        handler.addObject(new Platform(r.nextInt(WIDTH),r.nextInt(HEIGHT),ID.Platform));
+
+
     }
 
     public synchronized void start() {
@@ -73,6 +81,7 @@ public class Game extends Canvas implements Runnable{
 
     private void tick() {
         handler.tick();
+
     }
 
     private void render() {
@@ -85,10 +94,10 @@ public class Game extends Canvas implements Runnable{
 
         Graphics g = bs.getDrawGraphics();
 
-        g.setColor(Color.red);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        background.render(g);
 
         handler.render(g);
+
 
 
         g.dispose();
