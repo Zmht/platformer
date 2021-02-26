@@ -28,7 +28,7 @@ public class Game extends Canvas implements Runnable{
         r = new Random();
 
         //handler.addObject(new Player(WIDTH / 32, HEIGHT / 32, ID.Player, handler));
-        this.addKeyListener(new KeyInput(handler));
+        this.addKeyListener(new Gravity(handler));
         handler.addObject(new Player(300, 300, ID.Player, handler));
 
         handler.addObject(new Obstacle(600, 400,ID.Platform));

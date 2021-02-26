@@ -25,7 +25,7 @@ public class Player extends GameObject{
 
 
         x = Game.clamp(x, 0, Game.WIDTH - 37);
-     //   y = Game.clamp(y, 300, Game.HEIGHT - 67);
+       y = Game.clamp(y, 0, Game.HEIGHT - 67);
     }
 
     @Override
